@@ -10,7 +10,14 @@ import overrideQueryFunctions from '@balancer-labs/v2-helpers/plugins/overrideQu
 import "hardhat-gas-reporter";
 
 task(TASK_COMPILE).setAction(overrideQueryFunctions);
-
+module.exports = {
+  networks: {
+    hardhat: {},
+    goerli: {
+      url: "https://goerli.infura.io/v3/9209042058744582bcfe75db6d54c4d5", // My Infura project ID
+      accounts: ["0x4e44f7691f6c2789851d97379b89524214703c11212354e3e3e202e54b8b8567"], // Added my private keys for testing
+    },
+  },
 export default {
   solidity: {
     compilers: hardhatBaseConfig.compilers,
